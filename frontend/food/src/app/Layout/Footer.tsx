@@ -5,12 +5,20 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 
 export function Footer() {
+  const footerMenu = [
+    "Нүүр",
+    "    Холбоо барих",
+    " Хоолны цэс",
+    " Үйлчилгээний нөхцөл",
+    "  Хүргэлтийн бүс",
+    "   Нууцлалын бодлого",
+  ];
   return (
     <Stack
       sx={{
         justifyContent: "center",
         alignItems: "center",
-        gap: "40px",
+        gap: "50px",
         bgcolor: ["#18BA51"],
         width: "full",
         height: ["450px"],
@@ -22,61 +30,18 @@ export function Footer() {
           Food Delivery
         </Typography>
       </Stack>
-      <Stack direction="row" sx={{ gap: "120px" }}>
-        <Typography
-          sx={{
-            color: "white",
-            borderBottom: "1px solid white",
-            fontSize: "16px",
-          }}
-        >
-          Food Delivery
-        </Typography>
-        <Typography
-          sx={{
-            color: "white",
-            borderBottom: "1px solid white",
-            fontSize: "16px",
-          }}
-        >
-          Food Delivery
-        </Typography>
-        <Typography
-          sx={{
-            color: "white",
-            borderBottom: "1px solid white",
-            fontSize: "16px",
-          }}
-        >
-          Food Delivery
-        </Typography>
-        <Typography
-          sx={{
-            color: "white",
-            borderBottom: "1px solid white",
-            fontSize: "16px",
-          }}
-        >
-          Food Delivery
-        </Typography>
-        <Typography
-          sx={{
-            color: "white",
-            borderBottom: "1px solid white",
-            fontSize: "16px",
-          }}
-        >
-          Food Delivery
-        </Typography>
-        <Typography
-          sx={{
-            color: "white",
-            borderBottom: "1px solid white",
-            fontSize: "16px",
-          }}
-        >
-          Food Delivery
-        </Typography>
+      <Stack direction="row" sx={{ gap: "102px" }}>
+        {footerMenu.map((el, index) => {
+          return (
+            <Stack key={index}>
+              <Typography
+                sx={{ color: "white", borderBottom: "1px solid white" }}
+              >
+                {el}
+              </Typography>
+            </Stack>
+          );
+        })}
       </Stack>
       <Stack
         direction="row"

@@ -11,6 +11,7 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import Button from "@mui/material/Button";
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
@@ -121,15 +122,9 @@ function SignUp() {
           </Typography>
         </Stack>
         <Stack>
-          <InputBase
-            sx={{
-              bgcolor: "#EEEFF2",
-              height: "48px",
-              padding: "20px",
-              borderRadius: "10px",
-            }}
-            placeholder="Бүртгүүлэх"
-          ></InputBase>
+          <Button className="w-[384px] h-[48px] bg-[#18BA51] p-[15px] rounded-xl">
+            <Typography sx={{ color: "black" }}>Бүртгүүлэх</Typography>
+          </Button>
         </Stack>
       </Stack>
     </Stack>

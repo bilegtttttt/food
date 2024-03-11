@@ -10,6 +10,7 @@ import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Button from "@mui/material/Button";
+import Link from "next/link";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -54,9 +55,9 @@ function Login() {
                 }
               />
             </FormControl>
-            <Typography sx={{ ml: "250px", color: "#3F4145" }}>
+            <Link href="/forgotPassword" className="ml-[250px]">
               Нууц үг сэргээх
-            </Typography>
+            </Link>
           </Stack>
         </Stack>
 
@@ -66,15 +67,20 @@ function Login() {
               <Typography> Нэвтрэх</Typography>
             </Button>
           </Stack>
-          <Stack>
-            <Button sx={{ color: "#3F4145" }} disabled>
-              <Typography> Эсвэл</Typography>
-            </Button>
+          <Stack sx={{ color: "#3F4145", alignItems: "center" }}>
+            <Typography> Эсвэл</Typography>
           </Stack>
-          <Stack>
-            <Button variant="outlined" sx={{ color: "#3F4145" }} disabled>
-              <Typography> Бүртгүүлэх</Typography>
-            </Button>
+          <Stack
+            sx={{
+              borderRadius: "10px",
+              bgcolor: "#18BA51",
+            }}
+          >
+            <Link href="/signup" className="flex items-center justify-center">
+              <Button disabled>
+                <Typography sx={{ color: "black" }}>Бүртгүүлэх</Typography>
+              </Button>
+            </Link>
           </Stack>
         </Stack>
       </Stack>

@@ -10,6 +10,7 @@ import InputBase from "@mui/material/InputBase";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 
 export function Header() {
+  const header = ["НҮҮР", "ХООЛНЫ ЦЭС", "ХҮРГЭЛТИЙН БҮС"];
   return (
     <Stack
       direction="row"
@@ -25,9 +26,13 @@ export function Header() {
       <Box component="section" sx={{ p: 2, border: "1px" }}>
         <Stack direction="row" sx={{ gap: "40px" }}>
           <Image src="/Pinecone.png" alt="" width={20} height={20} />
-          <Typography sx={{}}>НҮҮР</Typography>
-          <Typography sx={{}}>ХООЛНЫ ЦЭС</Typography>
-          <Typography sx={{}}>ХҮРГЭЛТИЙН БҮС</Typography>
+          {header.map((el, index) => {
+            return (
+              <Stack key={index}>
+                <Typography>{el}</Typography>
+              </Stack>
+            );
+          })}
         </Stack>
       </Box>
       <Stack direction="row" sx={{ gap: "30px" }}>
