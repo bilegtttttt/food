@@ -6,7 +6,6 @@ export default function sendEmailUser() {
   return (
     <Stack>
       <ForgotPassword />
-      flbhvbhvwbvhbvwhb
     </Stack>
   );
 }

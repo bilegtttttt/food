@@ -8,6 +8,7 @@ import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlin
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import InputBase from "@mui/material/InputBase";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import Link from "next/link";
 
 export function Header() {
   const header = ["НҮҮР", "ХООЛНЫ ЦЭС", "ХҮРГЭЛТИЙН БҮС"];
@@ -53,9 +54,13 @@ export function Header() {
         </Stack>
         <Stack direction="row" sx={{ gap: "20px" }}>
           <ShoppingBasketOutlinedIcon className="mt-2" />
-          <Typography sx={{ paddingTop: "10px" }}>Сагс</Typography>
+          <Link href="">
+            <Typography sx={{ paddingTop: "10px" }}>Сагс</Typography>
+          </Link>
           <PermIdentityOutlinedIcon className="mt-2" />
-          <Typography sx={{ paddingTop: "10px" }}>Нэвтрэх</Typography>
+          <Link href="/login">
+            <Typography sx={{ paddingTop: "10px" }}>Нэвтрэх</Typography>
+          </Link>
         </Stack>
       </Stack>
     </Stack>

@@ -35,7 +35,7 @@ export default function ForgotPassword() {
         </Stack>
         <Stack sx={{ justifyContent: "center" }}>
           <Button
-            href="/sendEmailUser"
+            href="./sendEmailUser"
             className="w-[384px] h-[48px] bg-[#18BA51] p-[15px] rounded-xl"
           >
             <Typography sx={{ color: "black" }}>Үргэлжлүүлэх</Typography>
