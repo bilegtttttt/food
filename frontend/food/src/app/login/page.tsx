@@ -11,10 +11,29 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Button from "@mui/material/Button";
 import Link from "next/link";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const router = useRouter();
+
+  const handleSubmit = async () => {
+    try {
+      const res = await axios.post("http://localhost:8000/login", {
+        email,
+        password,
+      });
+      router.push("/");
+      console.log(res);
+    } catch (error) {}
+  };
+
   return (
     <Stack
       sx={{
@@ -32,6 +51,7 @@ function Login() {
           <Stack sx={{ gap: "2px" }}>
             <Typography>Имэйл </Typography>
             <InputBase
+              onChange={(event) => setEmail(event.target.value)}
               placeholder="Имэйл хаягаа оруулна уу"
               sx={{
                 width: "384px",
@@ -47,6 +67,7 @@ function Login() {
             <FormControl sx={{ width: "384px", bgcolor: "#ECEDF0" }}>
               <InputLabel>Нууц үгээ оруулна уу</InputLabel>
               <OutlinedInput
+                onChange={(event) => setPassword(event.target.value)}
                 type={showPassword ? "text" : "password"}
                 endAdornment={
                   <IconButton onClick={handleClickShowPassword}>
@@ -63,8 +84,8 @@ function Login() {
 
         <Stack sx={{ gap: "20px", mt: "50px" }}>
           <Stack sx={{ bgcolor: "#ECEDF0" }}>
-            <Button variant="outlined" disabled>
-              <Typography> Нэвтрэх</Typography>
+            <Button onClick={handleSubmit} variant="outlined">
+              <Typography sx={{ color: "black" }}> Нэвтрэх</Typography>
             </Button>
           </Stack>
           <Stack sx={{ color: "#3F4145", alignItems: "center" }}>
@@ -76,7 +97,7 @@ function Login() {
               bgcolor: "#18BA51",
             }}
           >
-            <Link href="/signup" className="flex items-center justify-center">
+            <Link href="signup" className="flex items-center justify-center">
               <Button disabled>
                 <Typography sx={{ color: "black" }}>Бүртгүүлэх</Typography>
               </Button>

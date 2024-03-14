@@ -10,11 +10,11 @@ export type UserModelType = {
 };
 
 const UserSchema = new Schema<UserModelType>({
-  name: { type: String, require: true },
-  email: { type: String, require: true },
-  phone: { type: String, require: true },
-  password: { type: String, require: true },
-  isAdmin: { type: Boolean, default: false, require: false },
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  phone: { type: String, required: true },
+  password: { type: String, required: true },
+  isAdmin: { type: Boolean, default: false, required: false },
 });
 
 UserSchema.index({ email: 1 }, { unique: true });

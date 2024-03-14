@@ -3,15 +3,35 @@ import Image from "next/image";
 import { Stack, Typography, boxClasses } from "@mui/material";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import Link from "next/link";
 
 export function Footer() {
   const footerMenu = [
-    "Нүүр",
-    "    Холбоо барих",
-    " Хоолны цэс",
-    " Үйлчилгээний нөхцөл",
-    "  Хүргэлтийн бүс",
-    "   Нууцлалын бодлого",
+    {
+      title: "Нүүр",
+      href: "/",
+    },
+    {
+      title: "Холбоо барих",
+      href: "/call",
+    },
+    {
+      title: " Хоолны цэс",
+      href: "/menu",
+    },
+
+    {
+      title: " Үйлчилгээний нөхцөл",
+      href: "/service",
+    },
+    {
+      title: "  Хүргэлтийн бүс",
+      href: "/delivery",
+    },
+    {
+      title: "   Нууцлалын бодлого",
+      href: "/secret",
+    },
   ];
   return (
     <Stack
@@ -34,11 +54,7 @@ export function Footer() {
         {footerMenu.map((el, index) => {
           return (
             <Stack key={index}>
-              <Typography
-                sx={{ color: "white", borderBottom: "1px solid white" }}
-              >
-                {el}
-              </Typography>
+              <Link href={el.href}>{el.title}</Link>
             </Stack>
           );
         })}
