@@ -2,6 +2,7 @@ import React from "react";
 import { Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import FoodsPng from "../foodsPng/Food";
 
 function Dessert() {
   return (
@@ -23,6 +24,7 @@ function Dessert() {
           <KeyboardArrowRightIcon sx={{ color: "#18BA51" }} />
         </Stack>
       </Stack>
+      <Stack>{/* <FoodsPng /> */}</Stack>
     </Stack>
   );
 }

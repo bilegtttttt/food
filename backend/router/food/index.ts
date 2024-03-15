@@ -4,4 +4,4 @@ import { CreateFoodController, GetFoodController } from "../../controller";
 export const FoodRouter = Router();
 
 FoodRouter.get("/foods", GetFoodController);
-FoodRouter.post("/food-create", CreateFoodController);
+FoodRouter.post("/create-food", CreateFoodController);

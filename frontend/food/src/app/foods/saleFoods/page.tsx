@@ -23,6 +23,7 @@ function SaleFoods() {
           <KeyboardArrowRightIcon sx={{ color: "#18BA51" }} />
         </Stack>
       </Stack>
+      <Stack sx={{ justifyContent: "center", alignItems: "center" }}></Stack>
     </Stack>
   );
 }
