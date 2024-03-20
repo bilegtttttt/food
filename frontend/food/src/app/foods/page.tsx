@@ -7,7 +7,7 @@ import Dessert from "./dessert/page";
 
 function Foods() {
   return (
-    <Stack>
+    <Stack sx={{ gap: "50px", mb: "100px" }}>
       <SaleFoods />
       <MainFoods />
       <Salaad />

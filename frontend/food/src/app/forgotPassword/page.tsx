@@ -13,32 +13,34 @@ import axios from "axios";
 export default function ForgotPassword() {
   const { push } = useRouter();
 
-  const [email, setEmail] = useState("");
-  const [data, setData] = useState({
-    email: "",
-    otp: "",
-    password: "",
-    name: "",
-  });
-  console.log(email, "dfgd");
+  const [code, setCode] = useState("input value");
+  console.log(code);
 
+  const [email, setEmail] = useState("");
+  const [result, setResult] = useState<any>();
   const [stage, setStage] = useState(0);
 
   const handlerClick = async () => {
-    try {
-      const res = await axios.post("http://localhost:8000/forgot", {
-        email: email,
-      });
-
-      console.log(res);
-    } catch (error) {}
-
-    if (stage === 2) {
-      push("/login");
-    } else {
-      setStage(stage + 1);
+    if (stage == 0) {
+      try {
+        const { data } = await axios.post("http://localhost:8000/forgot", {
+          email: email,
+        });
+        setStage(stage + 1);
+        console.log(data.result);
+        setResult(data.result.toString());
+      } catch (error) {}
+    }
+    if (stage == 1) {
+      if (result !== code) {
+        console.log("codoo dahin shalgan uu?");
+      } else {
+        setStage(stage + 1);
+      }
     }
   };
+
+  console.log(result);
 
   return (
     <Stack
@@ -56,7 +58,7 @@ export default function ForgotPassword() {
 
       <Stack sx={{ gap: "40px", mb: "20px" }}>
         {stage === 0 && <Email setEmail={setEmail} />}
-        {stage === 1 && <SendEmailUser email={email} />}
+        {stage === 1 && <SendEmailUser email={email} setCode={setCode} />}
         {stage === 2 && <NuutsUg />}
 
         <Stack sx={{ justifyContent: "center" }}>

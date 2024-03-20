@@ -8,7 +8,8 @@ import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
-function sendEmailUser({ email }: any) {
+function sendEmailUser(props: any) {
+  const { email, setCode } = props;
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -25,6 +26,7 @@ function sendEmailUser({ email }: any) {
         <Typography>Нууц үг сэргээх код</Typography>
         <FormControl sx={{ width: "384px", bgcolor: "#ECEDF0" }}>
           <OutlinedInput
+            onChange={(e) => setCode(e.target.value)}
             type={showPassword ? "text" : "password"}
             endAdornment={
               <IconButton onClick={handleClickShowPassword}>

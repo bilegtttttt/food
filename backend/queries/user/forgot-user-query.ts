@@ -9,7 +9,7 @@ const isEmailValid = async (email: string) => {
   return result;
 };
 
-export const forgotPasswordQuery = async (req: Request, res: Response) => {
+export const forgotPasswordQuery = async (req: Request) => {
   const { email } = req.body;
 
   try {
@@ -42,12 +42,8 @@ export const forgotPasswordQuery = async (req: Request, res: Response) => {
     //   { $set: { password: newPassword } } // Assuming your password field is named 'password'
     // );
 
-    return res.status(200).json({
-      message: validationCode,
-    });
-  } catch (error) {
-    // Handle errors
-    console.error(error);
-    return res.status(500).json({ error: "An error occurred" });
+    return validationCode;
+  } catch (error: any) {
+    throw new Error(error.message);
   }
 };

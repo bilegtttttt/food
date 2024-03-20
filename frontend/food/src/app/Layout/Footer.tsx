@@ -53,7 +53,10 @@ export function Footer() {
       <Stack direction="row" sx={{ gap: "102px" }}>
         {footerMenu.map((el, index) => {
           return (
-            <Stack key={index}>
+            <Stack
+              sx={{ color: "white", borderBottom: "1px solid white" }}
+              key={index}
+            >
               <Link href={el.href}>{el.title}</Link>
             </Stack>
           );

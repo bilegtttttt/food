@@ -2,11 +2,11 @@ import React from "react";
 import { Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import FoodsPng from "../foodsPng/Food";
+import { FoodPng } from "../foodPng/FoodPng";
 
 function Dessert() {
   return (
-    <Stack>
+    <Stack sx={{ gap: "30px" }}>
       <Stack
         direction="row"
         sx={{ justifyContent: "space-between", px: "300px" }}
@@ -24,7 +24,9 @@ function Dessert() {
           <KeyboardArrowRightIcon sx={{ color: "#18BA51" }} />
         </Stack>
       </Stack>
-      <Stack>{/* <FoodsPng /> */}</Stack>
+      <Stack sx={{ justifyContent: "center", alignItems: "center" }}>
+        <FoodPng />
+      </Stack>
     </Stack>
   );
 }
