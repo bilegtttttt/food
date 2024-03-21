@@ -2,7 +2,7 @@ import React from "react";
 import { Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import { FoodPng } from "../foodPng/FoodPng";
+import HomeFood from "@/components/menu/foodPng/HomeFood";
 
 function SaleFoods() {
   return (
@@ -25,7 +25,7 @@ function SaleFoods() {
         </Stack>
       </Stack>
       <Stack sx={{ justifyContent: "center", alignItems: "center" }}>
-        <FoodPng />
+        <HomeFood />
       </Stack>
     </Stack>
   );

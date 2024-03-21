@@ -2,7 +2,7 @@ import React from "react";
 import { Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import { FoodPng } from "../foodPng/FoodPng";
+// import { FoodPng } from "../foodPng/FoodPng";
 
 function Dessert() {
   return (
@@ -24,9 +24,9 @@ function Dessert() {
           <KeyboardArrowRightIcon sx={{ color: "#18BA51" }} />
         </Stack>
       </Stack>
-      <Stack sx={{ justifyContent: "center", alignItems: "center" }}>
+      {/* <Stack sx={{ justifyContent: "center", alignItems: "center" }}>
         <FoodPng />
-      </Stack>
+      </Stack> */}
     </Stack>
   );
 }

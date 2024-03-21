@@ -3,11 +3,14 @@ import { CategoryModel } from "../../db";
 
 export const createCategoryQuery = async (req: Request) => {
   const { name, foodIds } = req.body;
+
   const result = await CategoryModel.create({
     name,
-    foodIds: [...foodIds],
+    foodId: [...foodIds],
     createdAt: new Date(),
-    updateAt: new Date(),
+    updatedAt: new Date(),
   });
+  console.log(foodIds, "FOOD ID");
+
   return result._id;
 };

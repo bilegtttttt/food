@@ -41,8 +41,6 @@ const getFilterFoods = async () => {
 };
 
 export default async function SearchNotFound() {
-  // const data = await getFilterFoods()
-
   const data: FoodType[] | undefined = await getFilterFoods();
   console.log(data, "datashu");
 

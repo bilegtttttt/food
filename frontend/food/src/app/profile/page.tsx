@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, Typography } from "@mui/material";
+import { Button, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
@@ -7,6 +7,7 @@ import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import MarkEmailUnreadOutlinedIcon from "@mui/icons-material/MarkEmailUnreadOutlined";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
+import Link from "next/link";
 
 const profileFields = [
   {
@@ -97,7 +98,7 @@ export default function Profile() {
 
           <Typography sx={{ mt: "13px" }}>Захиалгын түүх</Typography>
         </Stack>
-        <Stack direction="row" sx={{ gap: "10px" }}>
+        <Link href="/login" className="flex gap-3">
           <Stack
             sx={{
               width: "48px",
@@ -110,9 +111,8 @@ export default function Profile() {
           >
             <LoginOutlinedIcon />
           </Stack>
-
           <Typography sx={{ mt: "13px" }}>Гарах</Typography>
-        </Stack>
+        </Link>
       </Stack>
     </Stack>
   );
