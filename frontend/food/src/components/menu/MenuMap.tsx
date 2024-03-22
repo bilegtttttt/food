@@ -4,28 +4,23 @@ import { Button, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { MouseEvent } from "react";
 import axios from "axios";
-import Container from "@mui/material";
-
+import FoodMap from "./FoodMap";
 type Category = {
   categories: FoodCategory[];
 };
 function AllCategories({ categories }: Category) {
   const [color, setColor] = useState(false);
   const [foods, setFoods] = useState<FoodCategory[]>([]);
+  const [data, setData] = useState<any>();
 
-  const handleClick = async (event: MouseEvent<HTMLButtonElement>) => {
-    const categoryId = event.currentTarget.id;
-
+  const handleClick = async (id: string) => {
     try {
       const { data } = await axios.get<FoodCategory[]>(
-        "http://localhost:8000/category",
-        { id: categoryId }
+        `http://localhost:8000/category/${id}`
       );
       console.log(data);
-
+      setData(data);
       return data;
-      //   setFoods(data);
-      //   setColor(true);
     } catch (error: any) {
       console.log(error.message);
       setColor(false);
@@ -40,7 +35,7 @@ function AllCategories({ categories }: Category) {
         gridRow={4}
         width={"100%"}
       >
-        {categories.map((el, index) => {
+        {categories?.map((el, index) => {
           return (
             <Grid
               sx={{
@@ -54,7 +49,7 @@ function AllCategories({ categories }: Category) {
               key={index}
             >
               <Button
-                onClick={handleClick}
+                onClick={() => handleClick(el.id)}
                 className="bg-[#18BA51]"
                 sx={{
                   width: "280px",
@@ -69,6 +64,9 @@ function AllCategories({ categories }: Category) {
           );
         })}
       </Grid>
+      <div>
+        <FoodMap data={data} />
+      </div>
     </Stack>
   );
 }

@@ -1,17 +1,11 @@
 import React from "react";
 import { Stack, Typography } from "@mui/material";
-import SaleFoods from "./saleFoods/page";
 import MainFoods from "./mainFoods/page";
-import Salaad from "./salaad/page";
-import Dessert from "./dessert/page";
 
 function Foods() {
   return (
     <Stack sx={{ gap: "50px", mb: "100px" }}>
-      <SaleFoods />
       <MainFoods />
-      <Salaad />
-      <Dessert />
     </Stack>
   );
 }

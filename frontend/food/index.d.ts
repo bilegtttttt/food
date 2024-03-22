@@ -7,6 +7,7 @@ type FoodType = {
 };
 
 type FoodCategory = {
+  id: string;
   _id: string;
   name: string;
   foodId: string;

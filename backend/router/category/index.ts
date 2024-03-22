@@ -8,5 +8,5 @@ import {
 export const CategoryRouter = Router();
 
 CategoryRouter.post("/category", CreateCategoryController);
-CategoryRouter.get("/category", GetCategoryController);
+CategoryRouter.get("/category/:id", GetCategoryController);
 CategoryRouter.get("/categories", GetCategoriesController);
