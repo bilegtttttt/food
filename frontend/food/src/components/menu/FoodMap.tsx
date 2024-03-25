@@ -16,15 +16,14 @@ function FoodMap({ data }: any) {
         spacing={2}
         sx={{
           justifyContent: "center",
-          alignContent: "center",
-          maxWidth: "1200px",
-          maxHeight: "256px",
+          alignItems: "center",
         }}
       >
         {data?.foodId.map((el: any, index: number) => (
           <Stack
             key={index}
             sx={{
+              flexWrap: "wrap",
               border: "1px solid #ccc",
               borderRadius: "8px",
               padding: "16px",
