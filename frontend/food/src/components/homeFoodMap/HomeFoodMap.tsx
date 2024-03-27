@@ -58,18 +58,23 @@ const HomeFoodMap: React.FC<FoodType> = ({ foodData }) => {
           key={index}
           spacing={2}
           sx={{
+            width: "282px",
+            height: "256px",
             border: "1px solid gray",
             cursor: "pointer",
             borderRadius: "10px",
-            height: "256px",
+            display: "flex",
+            flexWrap: "wrap",
+            position: "relative",
           }}
           onClick={handleFoodClick}
           id={el._id}
         >
           <Image
-            className="rounded-xl"
-            width={282}
-            height={186}
+            className="rounded-xl absolute"
+            // width={282}
+            // height={256}
+            fill
             src={el.image}
             alt={el.name}
           />
@@ -104,7 +109,14 @@ const HomeFoodMap: React.FC<FoodType> = ({ foodData }) => {
               </Stack>
               <Stack sx={{ gap: "20px" }}>
                 <Typography sx={{ fontSize: "18px" }}>Орц</Typography>
-                <Typography sx={{ bgcolor: "gray" }}>
+                <Typography
+                  sx={{
+                    bgcolor: "#F6F6F6",
+                    fontSize: "18px",
+                    borderRadius: "8px",
+                    padding: "10px",
+                  }}
+                >
                   {foundFood?.ingeredients}
                 </Typography>
               </Stack>

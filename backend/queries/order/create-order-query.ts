@@ -1,13 +1,16 @@
 import { Request } from "express";
 import { FoodModel, OrderModel, UserModel } from "../../db";
+import { ORDER_PROCESS } from "../../constants";
 
 const getFoodPrice = async (foodIds: string[]) => {
-  const price = Promise.all(
+  const prices = Promise.all(
     foodIds.map(async (el) => {
       const result = await FoodModel.findById({ _id: el });
       return result?.price;
     })
   );
+
+  return prices;
 };
 
 export const createOrderQuery = async (req: Request) => {
@@ -32,7 +35,11 @@ export const createOrderQuery = async (req: Request) => {
     },
   });
 
-  const foodPrices = await FoodModel.findById;
+  const totalPrice = await getFoodPrice(foods);
+  const sumOfTotalPrice = totalPrice.reduce(
+    (accumulator: number, currentValue) => accumulator + Number(currentValue),
+    0
+  );
 
   const result = await OrderModel.create({
     userId,
@@ -41,6 +48,8 @@ export const createOrderQuery = async (req: Request) => {
     district,
     apartment,
     orderNumber: howManyAreThere + 1,
+    totalPrice: sumOfTotalPrice.toString(),
+    process: ORDER_PROCESS.PENDING,
   });
 
   return result;
