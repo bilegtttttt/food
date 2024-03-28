@@ -1,7 +1,9 @@
 import React from "react";
+import { Button, Stack, Typography } from "@mui/material";
+import Image from "next/image";
 
 function Basket() {
-  return <div>Basket</div>;
+  return <Stack>Basket</Stack>;
 }
 
 export default Basket;

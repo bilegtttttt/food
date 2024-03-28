@@ -18,6 +18,11 @@ interface FoodType {
   foodData: FoodCatalog[];
 }
 
+type Basket = {
+  foodId: FoodType;
+  amount: number;
+};
+
 const HomeFoodMap: React.FC<FoodType> = ({ foodData }) => {
   const [open, setOpen] = useState(false);
   const [count, setCount] = useState(0);
@@ -27,7 +32,7 @@ const HomeFoodMap: React.FC<FoodType> = ({ foodData }) => {
   const handlePlus = () => setCount((prevCount) => prevCount + 1);
   const handlePrew = () => setCount((prevCount) => Math.max(prevCount - 1, 0));
   const [foundFood, setFoundFood] = useState<any>();
-  console.log(foodData, "pasdaa");
+  // console.log(foodData, "buh hoolnii data");
 
   const style = {
     position: "absolute" as "absolute",
@@ -50,6 +55,29 @@ const HomeFoodMap: React.FC<FoodType> = ({ foodData }) => {
     handleOpen();
   };
   console.log(foundFood);
+
+  // const [basket, setBasket] = useState<Basket[]>([
+  //   {
+  //     foodId: { _id: "", name: "", image: "", ingredients: "", price: "" },
+  //     amount: 1,
+  //   },
+  // ]);
+
+  // const [basketObj, setBasketObj] = useState<{
+  //   foodId: FoodType;
+  //   amount: number;
+  // }>({
+  //   foodId: { _id: "", image: "", ingredients: "", name: "", price: "" },
+  //   amount: 1,
+  // });
+  // const hanlerMin = () => {
+  //   if (basketObj.amount > 1) {
+  //     setBasketObj({ ...basketObj, amount: basketObj.amount - 1 });
+  //   }
+  // };
+  // const handlerPlus = () => {
+  //   setBasketObj({ ...basketObj, amount: basketObj.amount + 1 });
+  // };
 
   return (
     <Stack direction="row" spacing={2}>
@@ -84,6 +112,7 @@ const HomeFoodMap: React.FC<FoodType> = ({ foodData }) => {
           </Stack>
         </Stack>
       ))}
+
       <Modal open={open} onClose={handleClose}>
         <Stack
           direction="row"

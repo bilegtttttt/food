@@ -8,8 +8,20 @@ import { GiCabbage } from "react-icons/gi";
 function NuurPage() {
   return (
     <Stack>
-      <Stack sx={{ justifyContent: "center", alignItems: "center" }}>
-        <Image src="/food1.png" width={1800} height={788} alt="" />
+      <Stack
+        sx={{
+          justifyContent: "center",
+          alignItems: "center",
+          mt: "20px",
+        }}
+      >
+        <Image
+          className="rounded-xl"
+          src="/food1.png"
+          width={1200}
+          height={788}
+          alt=""
+        />
       </Stack>
       <Stack
         direction="row"
@@ -17,7 +29,7 @@ function NuurPage() {
           gap: "47px",
           justifyContent: "center",
           alignItems: "center",
-          my: "122px",
+          my: "50px",
         }}
       >
         <Stack
